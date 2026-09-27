@@ -4,7 +4,6 @@
 **Target:** 2–3 hours/day
 
 ### Saturday — Request Lifecycle
-
 - Learn: HTTP Request / Response
 - Learn: Client vs Server
 - Learn: DNS + TCP basics
@@ -14,7 +13,6 @@
 **Done when:** You can explain what happens when you call `GET /users`.
 
 ---
-
 ### Sunday — ASP.NET Core Pipeline
 
 - Learn: Middleware
@@ -30,7 +28,6 @@
 **Done when:** You can explain what happens between Kestrel and your Controller/Endpoint.
 
 ---
-
 ### Monday — Process / Thread / CPU / I/O
 
 - Learn: Process
@@ -51,7 +48,6 @@
 **Done when:** You can explain CPU-bound vs I/O-bound without notes.
 
 ---
-
 ### Tuesday — Latency / Throughput
 
 - Learn: Latency
@@ -65,7 +61,6 @@
 **Done when:** You understand why a system can have low latency but still have limited throughput.
 
 ---
-
 ### Wednesday — Boundaries / Resources / Failures
 
 - Learn: Network boundary
@@ -134,3 +129,4 @@ By Thursday you should have only **3 things**:
 - Ability to explain the whole flow verbally
 
 **Don't build a project this week. Don't go deep into ASP.NET internals. Don't study everything you encounter.**
+

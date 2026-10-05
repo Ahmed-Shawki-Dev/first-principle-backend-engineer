@@ -27,7 +27,6 @@ A Pragmatic, Time-Boxed Roadmap
    - Docker fundamentals
 
 4. Do not spend curriculum time relearning university-level foundations.
-
 5. Do not build toy projects just to satisfy the curriculum.
    Use existing projects whenever practical.
 
@@ -40,14 +39,12 @@ A Pragmatic, Time-Boxed Roadmap
    Strong Junior → Mid-level Backend Engineer
 
 8. DevOps is included as engineering knowledge, not as a DevOps career track.
-
 9. Security is included as backend/application security, not as a second Cybersecurity course.
-
 10. The objective is not to become an expert in every topic.
     The objective is to understand the important mechanisms, trade-offs, and practical usage well enough to design, implement, debug, and discuss backend systems confidently.
 
 ---
-# Timeline Overview
+## Timeline Overview
 
 | Dates                      | Phase                                         | Duration |
 | -------------------------- | --------------------------------------------- | -------: |
@@ -72,15 +69,15 @@ A Pragmatic, Time-Boxed Roadmap
 **Total: 37 weeks**
 
 ---
-# Phase 01 — Execution Mental Model
+## Phase 01 — Execution Mental Model
 
-**Dates:** Sep 28 – Oct 4, 2026  
+**Dates:** Sep 28 – Oct 4, 2026
 **Duration:** 1 week
-## Goal
+### Goal
 Build one coherent mental model of how a backend system executes:
 
 Network → OS → Kestrel → ASP.NET Core → Middleware → Endpoint → Application → EF Core → PostgreSQL → Response
-## Topics
+### Topics
 - Request/response lifecycle
 - Process vs thread
 - CPU-bound vs I/O-bound work
@@ -91,26 +88,26 @@ Network → OS → Kestrel → ASP.NET Core → Middleware → Endpoint → Appl
 - Resource limits
 - Basic scalability mental model
 
-## Milestone
+### Milestone
 - [ ] Draw the complete request lifecycle
 - [ ] Explain CPU-bound vs I/O-bound work
 - [ ] Explain latency vs throughput
 - [ ] Identify major resource and failure boundaries
 - [ ] Write a one-page Execution Mental Model
 
----****
-# Phase 02 — ASP.NET Core Internals
+---
+## Phase 02 — ASP.NET Core Internals
 
-**Dates:** Oct 5 – Oct 25, 2026  
+**Dates:** Oct 5 – Oct 25, 2026
 **Duration:** 3 weeks
 
-## Goal
+### Goal
 
 Understand what ASP.NET Core actually does between receiving an HTTP request and producing a response.
 
-## Topics
+### Topics
 
-### Hosting
+#### Hosting
 
 - Kestrel
 - Generic Host
@@ -118,7 +115,7 @@ Understand what ASP.NET Core actually does between receiving an HTTP request and
 - Server vs application
 - Reverse proxy relationship
 
-### Request Pipeline
+#### Request Pipeline
 
 - Middleware pipeline
 - Middleware ordering
@@ -127,7 +124,7 @@ Understand what ASP.NET Core actually does between receiving an HTTP request and
 - Request lifetime
 - Cancellation
 
-### Dependency Injection
+#### Dependency Injection
 
 - Service provider
 - Singleton / Scoped / Transient
@@ -135,14 +132,14 @@ Understand what ASP.NET Core actually does between receiving an HTTP request and
 - Captive dependencies
 - Disposal
 
-### Routing & Endpoints
+#### Routing & Endpoints
 
 - Routing
 - Endpoint selection
 - Endpoint metadata
 - Endpoint execution
 
-### MVC/API Pipeline
+#### MVC/API Pipeline
 
 - Model binding
 - Validation
@@ -150,13 +147,13 @@ Understand what ASP.NET Core actually does between receiving an HTTP request and
 - Action execution
 - Result execution
 
-### Error Handling
+#### Error Handling
 
 - Exception handling
 - Problem Details
 - Centralized API error handling
 
-### Outbound HTTP
+#### Outbound HTTP
 
 - HttpClient lifecycle
 - IHttpClientFactory
@@ -164,7 +161,7 @@ Understand what ASP.NET Core actually does between receiving an HTTP request and
 - Socket exhaustion
 - Named / typed clients
 
-## Milestone
+### Milestone
 
 - [ ] Trace a request through the complete ASP.NET Core pipeline
 - [ ] Explain DI lifetimes and scope creation
@@ -176,18 +173,18 @@ Understand what ASP.NET Core actually does between receiving an HTTP request and
 
 ---
 
-# Phase 03 — EF Core & Database Engineering
+## Phase 03 — EF Core & Database Engineering
 
-**Dates:** Oct 26 – Nov 22, 2026  
+**Dates:** Oct 26 – Nov 22, 2026
 **Duration:** 4 weeks
 
-## Goal
+### Goal
 
 Understand the complete chain:
 
 C# → EF Core → SQL → PostgreSQL Planner → Indexes → Locks → Storage
 
-## EF Core
+### EF Core
 
 - DbContext lifecycle
 - Change Tracker
@@ -203,7 +200,7 @@ C# → EF Core → SQL → PostgreSQL Planner → Indexes → Locks → Storage
 - Interceptors
 - EF Core performance
 
-## PostgreSQL
+### PostgreSQL
 
 - Constraints
 - B-Tree indexes
@@ -224,14 +221,14 @@ C# → EF Core → SQL → PostgreSQL Planner → Indexes → Locks → Storage
 - Replication basics
 - Backup & recovery basics
 
-## Concurrency
+### Concurrency
 
 - Optimistic concurrency
 - Pessimistic concurrency
 - PostgreSQL concurrency model
 - EF Core concurrency handling
 
-## Milestone
+### Milestone
 
 - [ ] Explain what happens when LINQ becomes SQL
 - [ ] Diagnose an N+1 query
@@ -246,18 +243,18 @@ C# → EF Core → SQL → PostgreSQL Planner → Indexes → Locks → Storage
 
 ---
 
-# Phase 04 — Backend Architecture
+## Phase 04 — Backend Architecture
 
-**Dates:** Nov 23 – Dec 13, 2026  
+**Dates:** Nov 23 – Dec 13, 2026
 **Duration:** 3 weeks
 
-## Goal
+### Goal
 
 Understand architectural boundaries and make deliberate trade-offs instead of following architecture templates blindly.
 
-## Topics
+### Topics
 
-### Foundations
+#### Foundations
 
 - Coupling
 - Cohesion
@@ -265,7 +262,7 @@ Understand architectural boundaries and make deliberate trade-offs instead of fo
 - Boundaries
 - Separation of concerns
 
-### Architectures
+#### Architectures
 
 - Layered Architecture
 - Clean Architecture
@@ -273,7 +270,7 @@ Understand architectural boundaries and make deliberate trade-offs instead of fo
 - Modular Monolith
 - Domain Model
 
-### Application Design
+#### Application Design
 
 - Domain Services
 - Application Services
@@ -283,7 +280,7 @@ Understand architectural boundaries and make deliberate trade-offs instead of fo
 - Dependency Inversion
 - Repository trade-offs
 
-### Architecture Decisions
+#### Architecture Decisions
 
 - When abstraction helps
 - When abstraction becomes ceremony
@@ -292,7 +289,7 @@ Understand architectural boundaries and make deliberate trade-offs instead of fo
 - When a simpler Layered Architecture is better
 - Modular boundaries
 
-## Milestone
+### Milestone
 
 - [ ] Explain why dependencies should point in specific directions
 - [ ] Compare Layered, Clean, Vertical Slice, and Modular Monolith
@@ -302,18 +299,18 @@ Understand architectural boundaries and make deliberate trade-offs instead of fo
 
 ---
 
-# Phase 05 — Backend Security
+## Phase 05 — Backend Security
 
-**Dates:** Dec 14 – Dec 20, 2026  
+**Dates:** Dec 14 – Dec 20, 2026
 **Duration:** 1 week
 
-## Assumption
+### Assumption
 
 Cybersecurity and Ethical Hacking fundamentals are already covered.
 
 This phase is only about integrating security knowledge into backend engineering.
 
-## Topics
+### Topics
 
 - Authentication vs Authorization
 - Claims
@@ -335,7 +332,7 @@ This phase is only about integrating security knowledge into backend engineering
 - Rate limiting
 - OWASP API Security fundamentals
 
-## Milestone
+### Milestone
 
 - [ ] Explain the complete authentication lifecycle
 - [ ] Implement policy-based authorization
@@ -346,16 +343,16 @@ This phase is only about integrating security knowledge into backend engineering
 
 ---
 
-# Phase 06 — Async & Concurrency
+## Phase 06 — Async & Concurrency
 
-**Dates:** Dec 21, 2026 – Jan 3, 2027  
+**Dates:** Dec 21, 2026 – Jan 3, 2027
 **Duration:** 2 weeks
 
-## Goal
+### Goal
 
 Understand how .NET handles asynchronous and concurrent work.
 
-## Topics
+### Topics
 
 - async/await mechanics
 - State machines
@@ -373,7 +370,7 @@ Understand how .NET handles asynchronous and concurrent work.
 - Deadlocks
 - Optimistic vs pessimistic concurrency
 
-## Milestone
+### Milestone
 
 - [ ] Explain what happens at an await
 - [ ] Explain why blocking .Result/.Wait() can cause starvation
@@ -384,25 +381,25 @@ Understand how .NET handles asynchronous and concurrent work.
 
 ---
 
-# Phase 07 — Testing Engineering
+## Phase 07 — Testing Engineering
 
-**Dates:** Jan 4 – Jan 24, 2027  
+**Dates:** Jan 4 – Jan 24, 2027
 **Duration:** 3 weeks
 
-## Goal
+### Goal
 
 Become comfortable testing backend systems without turning testing into a separate career track.
 
-## Topics
+### Topics
 
-### Testing Model
+#### Testing Model
 
 - Testing pyramid
 - Unit vs integration vs E2E
 - What should and should not be mocked
 - Test boundaries
 
-### Unit Testing
+#### Unit Testing
 
 - xUnit
 - FluentAssertions
@@ -410,27 +407,27 @@ Become comfortable testing backend systems without turning testing into a separa
 - Dependency isolation
 - Mocking with Moq or NSubstitute
 
-### Integration Testing
+#### Integration Testing
 
 - WebApplicationFactory
 - Real HTTP requests
 - Real application pipeline
 - Database integration
 
-### Testcontainers
+#### Testcontainers
 
 - PostgreSQL container
 - Real migrations
 - Real database behavior
 - Test isolation
 
-### Architecture Testing
+#### Architecture Testing
 
 - Dependency rules
 - Architecture tests
 - NetArchTest or equivalent
 
-## Milestone
+### Milestone
 
 - [ ] Write meaningful unit tests for business rules
 - [ ] Write integration tests against the API
@@ -441,16 +438,16 @@ Become comfortable testing backend systems without turning testing into a separa
 
 ---
 
-# Phase 08 — Background Processing & Resilience
+## Phase 08 — Background Processing & Resilience
 
-**Dates:** Jan 25 – Feb 7, 2027  
+**Dates:** Jan 25 – Feb 7, 2027
 **Duration:** 2 weeks
 
-## Goal
+### Goal
 
 Understand work that should happen outside the HTTP request and how systems behave when dependencies fail.
 
-## Background Processing
+### Background Processing
 
 - HostedService
 - BackgroundService
@@ -462,7 +459,7 @@ Understand work that should happen outside the HTTP request and how systems beha
 - Hangfire
 - Quartz basics
 
-## Resilience
+### Resilience
 
 - Timeouts
 - Retry
@@ -474,7 +471,7 @@ Understand work that should happen outside the HTTP request and how systems beha
 - Cancellation
 - Idempotency basics
 
-## Milestone
+### Milestone
 
 - [ ] Move one suitable operation outside the HTTP request
 - [ ] Build a small producer/consumer flow
@@ -485,16 +482,16 @@ Understand work that should happen outside the HTTP request and how systems beha
 
 ---
 
-# Phase 09 — Caching & Redis
+## Phase 09 — Caching & Redis
 
-**Dates:** Feb 8 – Feb 14, 2027  
+**Dates:** Feb 8 – Feb 14, 2027
 **Duration:** 1 week
 
-## Goal
+### Goal
 
 Understand caching as a consistency/performance trade-off.
 
-## Topics
+### Topics
 
 - Why caching exists
 - Cache-aside
@@ -510,7 +507,7 @@ Understand caching as a consistency/performance trade-off.
 - Relevant Redis data structures
 - Pub/Sub basics
 
-## Milestone
+### Milestone
 
 - [ ] Identify appropriate cache candidates in a real system
 - [ ] Implement cache-aside with Redis
@@ -520,16 +517,16 @@ Understand caching as a consistency/performance trade-off.
 
 ---
 
-# Phase 10 — Observability
+## Phase 10 — Observability
 
-**Dates:** Feb 15 – Feb 21, 2027  
+**Dates:** Feb 15 – Feb 21, 2027
 **Duration:** 1 week
 
-## Goal
+### Goal
 
 Know what the system is doing without relying on guesswork.
 
-## Topics
+### Topics
 
 - Structured logging
 - Serilog
@@ -543,7 +540,7 @@ Know what the system is doing without relying on guesswork.
 - Error tracking
 - Production diagnostics
 
-## Milestone
+### Milestone
 
 - [ ] Add structured logging to a real API
 - [ ] Trace one request using a correlation/trace ID
@@ -553,16 +550,16 @@ Know what the system is doing without relying on guesswork.
 
 ---
 
-# Phase 11 — Docker & DevOps Foundations
+## Phase 11 — Docker & DevOps Foundations
 
-**Dates:** Feb 22 – Feb 28, 2027  
+**Dates:** Feb 22 – Feb 28, 2027
 **Duration:** 1 week
 
-## Goal
+### Goal
 
 Understand the DevOps concepts a backend engineer needs to work effectively with production infrastructure.
 
-## Docker
+### Docker
 
 - Images
 - Containers
@@ -575,7 +572,7 @@ Understand the DevOps concepts a backend engineer needs to work effectively with
 - Docker Compose
 - Container lifecycle
 
-## DevOps Knowledge
+### DevOps Knowledge
 
 - CI vs CD
 - Build pipelines
@@ -588,7 +585,7 @@ Understand the DevOps concepts a backend engineer needs to work effectively with
 - Basic deployment flow
 - GitHub Actions
 
-## Milestone
+### Milestone
 
 - [ ] Containerize an ASP.NET Core API
 - [ ] Write a multi-stage Dockerfile
@@ -599,24 +596,24 @@ Understand the DevOps concepts a backend engineer needs to work effectively with
 
 ---
 
-# Phase 12 — Infrastructure & Deployment
+## Phase 12 — Infrastructure & Deployment
 
-**Dates:** Mar 1 – Mar 14, 2027  
+**Dates:** Mar 1 – Mar 14, 2027
 **Duration:** 2 weeks
 
-## Goal
+### Goal
 
 Understand how a backend actually reaches production.
 
-## Assumed Knowledge
+### Assumed Knowledge
 
 Linux and networking fundamentals are already known.
 
 No dedicated Linux fundamentals phase is required.
 
-## Topics
+### Topics
 
-### Production Linux
+#### Production Linux
 
 - Processes
 - Signals
@@ -627,7 +624,7 @@ No dedicated Linux fundamentals phase is required.
 - Process inspection
 - Basic server troubleshooting
 
-### Reverse Proxy & Deployment
+#### Reverse Proxy & Deployment
 
 - Nginx
 - Kestrel behind Nginx
@@ -641,7 +638,7 @@ No dedicated Linux fundamentals phase is required.
 - Logs
 - Health checks
 
-### CI/CD
+#### CI/CD
 
 - Build
 - Test
@@ -649,7 +646,7 @@ No dedicated Linux fundamentals phase is required.
 - Deploy
 - Rollback concept
 
-## Milestone
+### Milestone
 
 - [ ] Deploy a containerized API
 - [ ] Put Nginx in front of Kestrel
@@ -661,16 +658,16 @@ No dedicated Linux fundamentals phase is required.
 
 ---
 
-# Phase 13 — Distributed Systems
+## Phase 13 — Distributed Systems
 
-**Dates:** Mar 15 – Apr 11, 2027  
+**Dates:** Mar 15 – Apr 11, 2027
 **Duration:** 4 weeks
 
-## Goal
+### Goal
 
 Understand what changes when one process becomes multiple independent processes communicating over a network.
 
-## Distributed Systems Mental Model
+### Distributed Systems Mental Model
 
 - Network failures
 - Partial failure
@@ -682,7 +679,7 @@ Understand what changes when one process becomes multiple independent processes 
 - CAP
 - Clock issues
 
-## Messaging
+### Messaging
 
 - Message queues
 - RabbitMQ
@@ -692,7 +689,7 @@ Understand what changes when one process becomes multiple independent processes 
 - Consumer groups
 - Delivery semantics
 
-## Reliability Patterns
+### Reliability Patterns
 
 - Idempotent consumers
 - Outbox Pattern
@@ -704,7 +701,7 @@ Understand what changes when one process becomes multiple independent processes 
 - Compensating transactions
 - Failure isolation
 
-## Milestone
+### Milestone
 
 - [ ] Explain why distributed systems fail differently from monoliths
 - [ ] Build a basic producer/consumer flow
@@ -715,16 +712,16 @@ Understand what changes when one process becomes multiple independent processes 
 
 ---
 
-# Phase 14 — Pragmatic System Design
+## Phase 14 — Pragmatic System Design
 
-**Dates:** Apr 12 – May 2, 2027  
+**Dates:** Apr 12 – May 2, 2027
 **Duration:** 3 weeks
 
-## Goal
+### Goal
 
 Learn to design systems from requirements and constraints instead of starting with technologies.
 
-## Requirements
+### Requirements
 
 - Functional requirements
 - Non-functional requirements
@@ -733,7 +730,7 @@ Learn to design systems from requirements and constraints instead of starting wi
 - Reliability
 - Consistency
 
-## Capacity
+### Capacity
 
 - Requests per second
 - Concurrent users
@@ -741,7 +738,7 @@ Learn to design systems from requirements and constraints instead of starting wi
 - Bandwidth estimation
 - Growth estimation
 
-## Architecture
+### Architecture
 
 - Load balancing
 - Caching
@@ -754,7 +751,7 @@ Learn to design systems from requirements and constraints instead of starting wi
 - Failure handling
 - Disaster recovery basics
 
-## Practice
+### Practice
 
 Design:
 
@@ -765,7 +762,7 @@ Design:
 - Booking system
 - Real-time system
 
-## Milestone
+### Milestone
 
 - [ ] Analyze requirements before choosing technology
 - [ ] Perform basic capacity estimation
@@ -776,16 +773,16 @@ Design:
 
 ---
 
-# Phase 15 — Networking & Real-Time
+## Phase 15 — Networking & Real-Time
 
-**Dates:** May 3 – May 16, 2027  
+**Dates:** May 3 – May 16, 2027
 **Duration:** 2 weeks
 
-## Goal
+### Goal
 
 Go beyond networking fundamentals and understand the protocols/backend mechanisms used by modern systems.
 
-## Topics
+### Topics
 
 - HTTP/1.1 behavior
 - HTTP/2
@@ -804,7 +801,7 @@ Go beyond networking fundamentals and understand the protocols/backend mechanism
 - Object storage
 - Presigned URLs
 
-## Milestone
+### Milestone
 
 - [ ] Explain HTTP/1.1 vs HTTP/2 vs HTTP/3
 - [ ] Explain WebSocket connection lifecycle
@@ -815,16 +812,16 @@ Go beyond networking fundamentals and understand the protocols/backend mechanism
 
 ---
 
-# Phase 16 — Microservices
+## Phase 16 — Microservices
 
-**Dates:** May 17 – May 30, 2027  
+**Dates:** May 17 – May 30, 2027
 **Duration:** 2 weeks
 
-## Goal
+### Goal
 
 Understand microservices as a set of trade-offs, not as a default architecture.
 
-## Topics
+### Topics
 
 - Service boundaries
 - Service ownership
@@ -841,7 +838,7 @@ Understand microservices as a set of trade-offs, not as a default architecture.
 - Deployment independence
 - Monolith vs Modular Monolith vs Microservices
 
-## Milestone
+### Milestone
 
 - [ ] Identify reasonable service boundaries
 - [ ] Explain why database-per-service exists
@@ -852,12 +849,12 @@ Understand microservices as a set of trade-offs, not as a default architecture.
 
 ---
 
-# Phase 17 — .NET Runtime & Performance
+## Phase 17 — .NET Runtime & Performance
 
-**Dates:** May 31 – Jun 13, 2027  
+**Dates:** May 31 – Jun 13, 2027
 **Duration:** 2 weeks
 
-## Goal
+### Goal
 
 Understand the runtime enough to reason about memory, allocations, threads, and performance.
 

@@ -1,35 +1,63 @@
-ده الترتيب المنطقي اللي تمشي بيه النوتة نقط تحت بعض:
+## What Happen After Kestrel?
+ببساطة Kestrel بياخد الـ Bytes اللي جاية يحولها لـ Text وبعدها يحولها لاوبجيكت من نوع `HttpContext` الاوبجيكت ده بيكون شكله مثلا
+```cs
+HttpContext
+{
+  "Request": {
+    "Method": "GET",
+    "Path": "/api/users",
+    "Headers": { "Authorization": "Bearer eyJhbGci..." },
+    "Body": "Stream"
+  },
+  "Response": {
+    "StatusCode": 200,
+    "Body": "Stream"
+  },
+  "User": null,
+  "Items": {}
+}
+```
 
-- **المدخل: من Kestrel للـ Pipeline**
+بيقوم الـ Object ده مسلمه للـ **Request Pipeline**
+****
+## Request Pipeline
 
-    - تسليم الـ `HttpContext` للماسورة.
+![](https://res.cloudinary.com/du7j80lol/image/upload/v1790525304/obsidian/eztfupzwfazbrchqes0n.png)
 
-- **الـ Request Pipeline كفكرة عامة**
+دي عبارة عن زي خط إنتاج بيكون جواه كذا عامل ودول هما الـ **Middlewares**
 
-    - تعريف الماسورة والرحلة رايح جاي (Inbound / Outbound).
+الخط ده شغال رايح جاي، طب أزاي؟
+```cs
+// 1. Inbound Request رايح
+Console.WriteLine("قبل ما يعدي");
 
-- **الـ Middleware (المكون الأساسي)**
+await next(context); // Go Next Middleware
 
-    - وظيفته في السكة (فحص / تعديل).
+// 2. Outbound Response جاي
+Console.WriteLine("بعد ما رجع");
+```
 
-    - دور الـ `next()`.
+لو في Middleware نسيت تستدعي `next()` أو حصل شرط ميكملش الـ Request بيقف ويرجع ميدخلش الـ **Endpoint**
 
-    - فكرة الـ Short-circuiting (الفرملة والرجوع بدري).
+وفي قاعدة أن أي حاجة قبل `next` بتتنفذ في الريكوست
+وأي حاجة بعد ال `next` بتتنفذ بعد ما الـ **Response** يجي أو يعني بعد ما يوصل للـ **Endpoint** ويرجع تاني بالعكس
+****
+## Middleware
+الـ Middleware زي ما قولنا أنه عامل بيقف جوا الـ **Pipeline** كل وظيفته أنه يعدل في الـ `HttpContext` سواء يزود فيه أو يحط فيه يتشيك حاجة فيه أيا كان هو بيتمحور حوالينه
 
-- **ترتيب الـ Middlewares (Order of Execution)**
+أول ما بيخلص اللي عمله الطبيعي انه يعمل `next()` عشان يخليه يروح للـ Middleware اللي بعده
 
-    - ليه الترتيب في `Program.cs` حرج (زي الـ Exception Handling في الأول).
+بس لو قرر ميعملش `next()` فدي بتبقى اسمها **Short Circuiting** أنه بيوقف الكونتيكست قبل ما يوصل للـ **Endpoint** أو الخطوة اللي بعدها وده طبعا بيرجعلك الـ Response يأما بأيرور ماسج أو مشكلة حقيقية
+### Middlewares (Order of Execution)
+وفي هنا قاعدة مهمة أن الترتيب في الـ Middlewares أجباري ومفهوش أي هزار
+يعني لازم تحدد مين هيدخل قبل مين ومين بعد مين
 
-- **الـ Routing Middleware**
+يعني مثلا الميدلوير بتاع الـ **Authorization** لازم يجي بعد الـ Routing والـ Authentication، عشان يتأكد هل اليوزر ده مسموح له يدخل الـ Route ده ولا لأ
 
-    - فحص الـ Path والـ Method ومطابقتهم بالخريطة.
+### Routing Middleware
+هنا بقى بعد غالبا أغلب الـ Middlewares بيبدأ يروح للـ Routing Middleware عشان يشوف هو هيروح لأني Endpoint بالضبط وهنا الـ Endpoint لي **Unique Composit Key** بيتكون من الميثود بتاعته مع الـ **Path** فالميدلوير بيجيبه من هنا وبعدها يدخل بقى على الـ Endpoint Middleware
+### Endpoint Middleware
+هنا خلاص بقى بتدخل على الـ Controller بتاعك وتنفذ سواء البيزنس لوجيك أو الداتا بيز اوبريشنز اللي هنتكلم عنها قدام
+****
+بعدها الريسبونس بيرجع تاني بالعكس لحد ما يوصل لـ **Kestrel** ويروح للكلاينت بتاعنا في سلام
 
-- **الـ Endpoint Middleware**
-
-    - الوصول للمحطة الأخيرة وتنفيذ الكود الفعلي (Controller / Minimal API).
-
-- **رحلة الـ Response وهو راجع**
-
-    - ارتداد الـ Response في نفس الماسورة بالعكس وصولاً لـ Kestrel.
-
-كده الهيكل واضح؟

@@ -40,7 +40,7 @@ _dateTime = dateTime;
 ```
 
 ### Action injection with `FromServices`
-هنا أنت تقدر تحقن dependencies بشكل مباشر في الأكشن 
+هنا أنت تقدر تحقن dependencies بشكل مباشر في الأكشن
 ```cs
 public IActionResult About([FromServices] IDateTime dateTime)
 {
@@ -57,7 +57,32 @@ public IActionResult About([FromServices] IDateTime dateTime)
 
 بعد ما بيعرف الـ Controller والـ Action بيبدأ ينفذ الـ Action Parameters & Model Binding ودي شرحناها بالتفصيل في جزء الـ Model Binding والأولويات [[07- Model Binding & Validation]]
 
-بعدها بيشوف الـ ModelState والـ Validation ولو لقى غلط وفي `[ApiController]` يبدأ يرد بـ 400 وهكذا 
+بعدها بيشوف الـ ModelState والـ Validation ولو لقى غلط وفي `[ApiController]` يبدأ يرد بـ 400 وهكذا
 ****
 ## 3. Results Execution & Content Negotiation
 
+كلنا عارفين الـ `IActionResult` وبنستعملها في كل الـ Controllers تقريباً
+بس الفكرة هي ليه اتعملت أصلا وايه اللي بيحصل لما بنعمل return؟
+
+دي interface بتديك مرونة ترجع responses مختلفة على حسب اللوجيك بتاعك يعني لو الداتا تمام ترجع 200 ولو مش موجودة ترجع 404
+### ايه اللي بيحصل Under The Hood؟
+أول ما الـ Action بتخلص بترجع الـ Result والـ Framework بينادي ميثود اسمها `ExecuteResultAsync` :
+1. الـ Output Formatter: المسؤول عن تحويل الـ Object هو كائن اسمه SystemTextJsonOutputFormatter
+2. الـ Content Negotiation: بيروح يبص على الـ Accept Header اللي جاي في الـ Request زي application/json
+3. لو الكلاينت طلب صيغة مش متسجلة زي XML من غير ما نضيف الـ XML Formatter في Program.cs بيحصل Fallback وبيرجع للـ Default وهو الـ JSON
+4. الـ Formatter بياخد الـ Object ويكتبه علطول جوه الـ Response Body Stream
+
+### الفرق بين `IActionResult` و `ActionResult<T>`
+- الـ `IActionResult`: بترجع أي Response بس عيبها إن Swagger مابيبقاش عارف نوع الـ Model اللي راجع في الـ 200 OK
+- الـ `ActionResult<T>`: بتحدد نوع الـ DTO صريحة فبتمكّنك ترجع الـ Object مباشر من غير Ok() وبيظهر صح في الـ Schemas بتاعة Swagger
+
+```cs
+[HttpGet("{id}")]
+public ActionResult<Product> GetProduct(int id)
+{
+    var product = _service.GetById(id);
+    if (product is null) return NotFound();
+    
+    return product;
+}
+```

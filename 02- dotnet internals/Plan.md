@@ -123,14 +123,14 @@
 - [x] Understand constructor dependency injection into controllers.
 - [x] Study action invocation.
 - [x] Understand action parameters.
-- [ ] Study Action Results.
-- [ ] Understand result execution.
-- [ ] Study formatters and content negotiation at a practical level.
-- [ ] Understand object → JSON → HTTP response.
+- [x] Study Action Results.
+- [x] Understand result execution.
+- [x] Study formatters and content negotiation at a practical level.
+- [x] Understand object → JSON → HTTP response.
 
 #### Practical
-- [ ] Trace controller activation and action execution with breakpoints.
-- [ ] Observe how an action result becomes an HTTP response.
+- [x] Trace controller activation and action execution with breakpoints.
+- [x] Observe how an action result becomes an HTTP response.
 
 ### Day 6 — Integration & Framework Tracing
 - [ ] Build a custom Endpoint Filter.
@@ -147,14 +147,6 @@
 - [ ] Build an endpoint with custom model binding/validation behavior.
 - [ ] Trace a real endpoint with breakpoints and framework source.
 
-### Day 7 — Review
-- [ ] Explain the Endpoint and Metadata model without notes.
-- [ ] Explain how model binding and validation work.
-- [ ] Explain serialization vs deserialization and source generation.
-- [ ] Explain the MVC filter execution order and scopes.
-- [ ] Compare Middleware, Endpoint Filters, and MVC Filters.
-- [ ] Trace object → JSON → HTTP response.
-- [ ] Identify remaining gaps and record what needs further study.
 ---
 #### Week 3 — Error Architecture, Outbound HTTP & Defensive Backend Design
 ##### Goal

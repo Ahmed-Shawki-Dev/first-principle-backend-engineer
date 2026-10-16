@@ -902,9 +902,9 @@ Understand the runtime enough to reason about memory, allocations, threads, and 
 
 ---
 
-# Master Execution Checklist
+## Master Execution Checklist
 
-## Foundation
+### Foundation
 
 - [ ] Phase 01 — Execution Mental Model
 - [ ] Phase 02 — ASP.NET Core Internals
@@ -913,7 +913,7 @@ Understand the runtime enough to reason about memory, allocations, threads, and 
 - [ ] Phase 05 — Backend Security
 - [ ] Phase 06 — Async & Concurrency
 
-## Production Backend
+### Production Backend
 
 - [ ] Phase 07 — Testing Engineering
 - [ ] Phase 08 — Background Processing & Resilience
@@ -922,7 +922,7 @@ Understand the runtime enough to reason about memory, allocations, threads, and 
 - [ ] Phase 11 — Docker & DevOps Foundations
 - [ ] Phase 12 — Infrastructure & Deployment
 
-## Advanced Backend
+### Advanced Backend
 
 - [ ] Phase 13 — Distributed Systems
 - [ ] Phase 14 — System Design
@@ -932,7 +932,7 @@ Understand the runtime enough to reason about memory, allocations, threads, and 
 
 ---
 
-# Explicitly Outside the Curriculum
+## Explicitly Outside the Curriculum
 
 These are prerequisites, existing background, or supporting knowledge.
 
@@ -959,7 +959,7 @@ They can be revisited whenever a later topic requires deeper understanding.
 
 ---
 
-# Definition of Completion
+## Definition of Completion
 
 A phase is complete when:
 

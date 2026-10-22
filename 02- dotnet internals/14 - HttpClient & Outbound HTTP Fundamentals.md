@@ -23,7 +23,7 @@
 - When to use which option
 - DelegatingHandler => Like axios interceptor
 - TokenCancellations
-
+****
 ## What Is HttpClient in .NET
 من الآخر الـ `HttpClient` هي الطريقة اللي بتبعت بيها HTTP Requests لسيرفر تاني وليها كل خصائص الـ `HTTP` اللي كلنا عارفينها نفس الـ Methods ونفس الـ Headers ونفس الـ Status Codes وكل حاجة تقريبا وليها دعم للـ JSON وهكذا
 

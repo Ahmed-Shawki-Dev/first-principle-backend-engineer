@@ -1,6 +1,3 @@
-- What Is Magration
-- snapshot
-- add custom initial data migration
 ![](https://res.cloudinary.com/du7j80lol/image/upload/v1793016938/obsidian/ozp7e9vfpqoennnwahqf.png)
 ****
 ## What Is Migration?

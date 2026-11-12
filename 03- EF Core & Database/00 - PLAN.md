@@ -47,9 +47,9 @@ These are internal/advanced concepts from Phase 3 roadmap that the playlist does
 - [ ] **DbContext Pooling** *(`AddDbContextPool` for performance)*
 ****
 ## PostgreSQL
-- Constraints
+- Constraints ✅
 - B-Tree indexes
-- Dates
+- Dates, JSONB
 - Composite indexes
 - Index selection
 - EXPLAIN
